@@ -9,6 +9,21 @@
       "id": 3,
       "name": "San pham B",
       "price": 100
+    },
+    {
+      "name": "Đen",
+      "price": "0500",
+      "id": 4
+    },
+    {
+      "name": "Đen ddas",
+      "price": "0123",
+      "id": 9
+    },
+    {
+      "name": "Product 11",
+      "price": "02",
+      "id": 10
     }
   ],
   "users": []
