@@ -2,13 +2,12 @@
   "products": [
     {
       "id": 2,
-      "name": "San pham B",
-      "price": 100
-    },
-    {
-      "id": 3,
-      "name": "San pham B",
-      "price": 100
+      "name": "San pham B update 2",
+      "price": "100",
+      "product": {
+        "name": "San pham B",
+        "price": 100
+      }
     },
     {
       "name": "Đen",
@@ -16,14 +15,9 @@
       "id": 4
     },
     {
-      "name": "Đen ddas",
-      "price": "0123",
-      "id": 9
-    },
-    {
-      "name": "Product 11",
-      "price": "02",
-      "id": 10
+      "name": "Nâu",
+      "price": "01111",
+      "id": 11
     }
   ],
   "users": []

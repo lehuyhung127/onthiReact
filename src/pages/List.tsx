@@ -59,7 +59,9 @@ const List = () => {
             <td>{product?.name}</td>
             <td>{product?.price}</td>
             <table>
-              <button className="btn btn-danger">Cap nhat</button>
+              <Link to={`/products/${product.id}/edit`}>
+              <button className="btn btn-danger" >Cap nhat</button>
+              </Link>
               <button className="btn btn-primary" onClick={() => window.confirm("Ban chac chan muon xoa khong?") && removeProduct(product.id!)}>Xoa</button>
 
             </table>
