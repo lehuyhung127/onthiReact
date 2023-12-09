@@ -5,16 +5,20 @@ import Home from './pages/Home'
 import List from './pages/List'
 import Add from './pages/Add'
 import Edit from './pages/Edit'
+import Signin from './pages/Signin'
+import Signup from './pages/Signup'
 
 function App() {
 
   return (
     <>
       <Routes>
-        <Route path='/' index element={<Home/>}/>
+        <Route index path='/' element={<Home/>}/>
         <Route path='products'  element={<List/>}/>
         <Route path='products/add'  element={<Add/>}/>
         <Route path='products/:id/edit'  element={<Edit/>}/>
+        <Route path='signin'  element={<Signin/>}/>
+        <Route path='signup'  element={<Signup/>}/>
       </Routes>
     </>
   )

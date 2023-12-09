@@ -1,24 +1,31 @@
 {
   "products": [
     {
-      "id": 2,
-      "name": "San pham B update 2",
-      "price": "100",
-      "product": {
-        "name": "San pham B",
-        "price": 100
-      }
+      "name": "Nâu",
+      "price": "111",
+      "id": 11
     },
     {
       "name": "Đen",
-      "price": "0500",
-      "id": 4
-    },
-    {
-      "name": "Nâu",
-      "price": "01111",
-      "id": 11
+      "price": "122",
+      "id": 12
     }
   ],
-  "users": []
+  "users": [
+    {
+      "id": 1,
+      "email": "aaaaaaaaaaaa@gmail.com",
+      "password": "zsd"
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$9/ZufOL/2.tE4LZcJKq03uc75XADZcsWozQ8xLpp2NJzIg9d7MrfG",
+      "id": 2
+    },
+    {
+      "email": "member123@gmail.com",
+      "password": "$2a$10$fCDygvHgJBt8DpypCLqs/Oiu2CzDP8G7mn.duodyoS8MK8AbRX88q",
+      "id": 3
+    }
+  ]
 }
