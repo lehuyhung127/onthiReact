@@ -4,10 +4,10 @@ import { SubmitHandler, useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 
 const Add = () => {
-  const queryClient = useQueryClient()
+  const queryClient  = useQueryClient()
   const navigate = useNavigate()
-  const { mutate } = useMutation({
-    mutationFn: async (product: {name: string, price: number}) => {
+  const {mutate} = useMutation({
+    mutationFn: async(product: {name: string, price:  number, image: string, desc: string}) => {
       try {
         const response = await axios.post(`http://localhost:3000/products`, product)
         return response.data
@@ -19,52 +19,39 @@ const Add = () => {
       queryClient.invalidateQueries({
         queryKey: ["PRODUCTS"]
       })
-      alert('Ban da them sann pham thanh cong')
+      alert(" Them thanh cong")
       reset()
       setTimeout(() => {
-        navigate("/products")
-      }, 2000)
-    }
-  })
-  const { register, handleSubmit, formState: { errors }, reset,
-  } = useForm({
-    defaultValues: {
-      name: "",
-      price: 0
+        navigate('/products')
+      }, 2000);
     }
   })
 
-  const onSubmit: SubmitHandler<{name: string, price: number}> = (data) => {
-     mutate(data)
+  const {register, handleSubmit, formState: {errors}, reset, } = useForm({
+    defaultValues: {
+      name: "",
+      price: 0,
+      image: "",
+      desc: ""
+    }
+  })
+  const onSubmit: SubmitHandler<{name: string, price:  number, image: string, desc: string}> = (data) => {
+    mutate(data)
   }
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form action="" onSubmit={handleSubmit(onSubmit)}>
         <div className="form-ground">
           <div className="form-label">Ten san pham</div>
-          <input
-            className="form-control"
-            type="text"
-            {...register("name", { required: true })}
-            placeholder="Ten san pham"
-          />
-          {errors.name && (
-            <p className="error-message">Vui lòng nhập tên sản phẩm</p>
+          <input type="text"
+          className="form-coltrol" 
+          placeholder="Ten san pham"
+          {...register('name', {required: true})}/>
+          {errors.name &&(
+            <p>Khong bo trong</p>
           )}
         </div>
-        <div className="form-ground">
-          <div className="form-label">Gia san pham</div>
-          <input
-            className="form-control"
-            type="number"
-            {...register("price", { required: true, min: 1 })}
-            placeholder="Gia san pham"
-          />
-          {errors.price && (
-            <p className="error-message">Vui lòng nhập giá sản phẩm lớn hơn 0</p>
-          )}
-        </div>
-        <button className="btn btn-primary">Them</button>
+        <button className="btn btn-danger">Them</button>
       </form>
     </div>
   )

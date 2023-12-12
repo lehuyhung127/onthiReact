@@ -1,14 +1,25 @@
 {
   "products": [
     {
-      "name": "Nâu",
-      "price": "111",
-      "id": 11
+      "id": 1,
+      "name": "San pham 1",
+      "price": 100,
+      "image": "https://picsum.photos/100/100",
+      "desc": "Mo ta san pham 1"
     },
     {
-      "name": "Đen",
-      "price": "122",
-      "id": 12
+      "id": 2,
+      "name": "San pham 2",
+      "price": 200,
+      "image": "https://picsum.photos/100/100",
+      "desc": "Mo ta san pham 2"
+    },
+    {
+      "name": "Product 11",
+      "price": 0,
+      "image": "",
+      "desc": "",
+      "id": 3
     }
   ],
   "users": [
@@ -16,16 +27,6 @@
       "id": 1,
       "email": "aaaaaaaaaaaa@gmail.com",
       "password": "zsd"
-    },
-    {
-      "email": "admin@gmail.com",
-      "password": "$2a$10$9/ZufOL/2.tE4LZcJKq03uc75XADZcsWozQ8xLpp2NJzIg9d7MrfG",
-      "id": 2
-    },
-    {
-      "email": "member123@gmail.com",
-      "password": "$2a$10$fCDygvHgJBt8DpypCLqs/Oiu2CzDP8G7mn.duodyoS8MK8AbRX88q",
-      "id": 3
     }
   ]
 }

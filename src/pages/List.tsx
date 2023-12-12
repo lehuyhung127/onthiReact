@@ -1,9 +1,10 @@
-import {  useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import axios from "axios"
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
+
 const List = () => {
   const queryClient = useQueryClient()
-  const { data, isLoading, isError } = useQuery({
+  const {data, isError, isLoading} = useQuery({
     queryKey: ["PRODUCTS"],
     queryFn: async () => {
       try {
@@ -13,10 +14,9 @@ const List = () => {
         console.log(error)
       }
     }
-  });
-  // xoa san pham
+  })
   const {mutate} = useMutation({
-    mutationFn: async(id: number) => {
+    mutationFn: async (id: number) => {
       try {
         const response = await axios.delete(`http://localhost:3000/products/${id}`)
         return response.data
@@ -27,53 +27,48 @@ const List = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: ["PRODUCTS"]
-      })
+      }
+      )
     }
   })
-  if (isLoading) return <div>Loading</div>
-  if (isError) return <div>Error</div>
 
-  
-  const removeProduct = (id: number) => {
-    mutate(id)
-  }
-  // end xoa san pham
+  if(isError) return <div>Error</div>
+  if(isLoading) return <div>Loading</div>
+const removeProduct = (id: number) => {
+  mutate(id)
+}
   return (
-<div>
-  <Link to="/products/add"> Them san pham</Link>
-    <table className="table table-bordered">
-      <thead>
-        <tr>
-          <th>
-            #
-          </th>
-          <th>Teen sanr pham</th>
-          <th>Gia</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {data?.map((product: { id?: number | undefined, name: string, price: number }, index: number) => (
-          <tr key={product?.id}>
-            <td>{index + 1}</td>
-            <td>{product?.name}</td>
-            <td>{product?.price}</td>
-            <table>
-              <Link to={`/products/${product.id}/edit`}>
-              <button className="btn btn-danger" >Cap nhat</button>
-              </Link>
-              <button className="btn btn-primary" onClick={() => window.confirm("Ban chac chan muon xoa khong?") && removeProduct(product.id!)}>Xoa</button>
-
-            </table>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Ten</th>
+            <th>Gia</th>
+            <th>Anh</th>
+            <th>Mo ta</th>
+            <th>Chuc nang</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
-
-  </div>
+        </thead>
+        <tbody>
+          {data?.map((product: {id?: number|undefined, name: string, price: number, image: string, desc: string}, index: number) => (
+            <tr key={product?.id}>
+              <td>{index + 1}</td>
+              <td>{product?.name}</td>
+              <td>{product?.price}</td>
+              <td><img src={product?.image} alt="" /></td>
+              <td>{product?.desc}</td>
+              <td>
+                <Link to={`/products/${product.id}/edit`}>
+                <button>Cap nhat</button></Link>
+                <button onClick={() => window.confirm("xoa")&& removeProduct(product.id!)}>Xoa</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   )
-  
-
 }
 
 export default List

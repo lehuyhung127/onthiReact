@@ -1,0 +1,2 @@
+npm i axios react-router-dom react-hook-form @tanstack/react-query
+npm install @hookform/resolvers
